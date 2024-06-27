@@ -1,4 +1,4 @@
-package com.hemebiotech.analytics.WriteSymptomDataToFile;
+package com.hemebiotech.analytics.WriteSymptoms;
 
 import java.util.Map;
 

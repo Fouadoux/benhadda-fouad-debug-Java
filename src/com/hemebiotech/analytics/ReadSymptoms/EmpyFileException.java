@@ -1,4 +1,4 @@
-package com.hemebiotech.analytics.ReadSymptomDataFromFile;
+package com.hemebiotech.analytics.ReadSymptoms;
 
 /**
  *  Exception for empty files

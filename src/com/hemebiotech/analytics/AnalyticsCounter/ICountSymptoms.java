@@ -1,4 +1,4 @@
-package com.hemebiotech.analytics.SymptomCounter;
+package com.hemebiotech.analytics.AnalyticsCounter;
 
 import java.util.List;
 import java.util.Map;
