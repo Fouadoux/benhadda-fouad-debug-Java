@@ -5,6 +5,7 @@ package com.hemebiotech.analytics.ReadSymptoms;
  */
 public class EmpyFileException extends Exception{
     public EmpyFileException(String error) {
+
         super("File Empty");
     }
 }

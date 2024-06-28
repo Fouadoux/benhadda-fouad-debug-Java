@@ -1,5 +1,8 @@
 package com.hemebiotech.analytics.AnalyticsCounter;
 
+import com.hemebiotech.analytics.ReadSymptoms.ReadSymptoms;
+import com.hemebiotech.analytics.WriteSymptoms.WriteSymptoms;
+
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -8,8 +11,23 @@ import java.util.TreeMap;
 /**
  * This class provides methods to count the occurrences of symptoms and sort them in alphabetical order.
  */
-public class AnalyticsCounter implements ICountSymptoms, ISortSymptoms {
+public class AnalyticsCounter {
 
+
+    ReadSymptoms readSymptoms;
+    WriteSymptoms writeSymptoms;
+    public AnalyticsCounter(String fileRead, String fileWrite) {
+        this.readSymptoms= new ReadSymptoms(fileRead);
+        this.writeSymptoms= new WriteSymptoms(fileWrite);
+
+    }
+
+    public List<String>getSymptoms(){
+        return readSymptoms.readSymptoms();
+    }
+    public void writeSymptoms(Map<String,Integer> symptoms){
+        writeSymptoms.writeSymptoms(symptoms);
+    }
     /**
      *  Method for counting the occurrence of symptoms
      *  Use computeIfAbsent to create a symptom with a value of 0

@@ -9,19 +9,14 @@ import java.util.Map;
 
 public class main {
 
-    public static void main(String args[]) throws Exception{
-        
-
-        ReadSymptoms readerSymptoms = new ReadSymptoms("symptoms.txt");
-        List<String> readSymptom = readerSymptoms.readSymptoms();
+    public static void main(String args[]) throws Exception {
 
 
-        AnalyticsCounter analyticsCounter = new AnalyticsCounter();
-        Map<String,Integer> countSymptoms= analyticsCounter.countSymptoms(readSymptom);
-        Map<String,Integer> sortSymptoms= analyticsCounter.sortSymptoms(countSymptoms);
-
-        WriteSymptoms writeSymptoms = new WriteSymptoms("result.out");
-        writeSymptoms.writeSymptoms(sortSymptoms);
+        AnalyticsCounter analyticsCounter = new AnalyticsCounter("symptoms.txt", "resolt.out");
+        List<String> symptomsList = analyticsCounter.getSymptoms();
+        Map<String, Integer> symptomsCount = analyticsCounter.countSymptoms(symptomsList);
+        Map<String, Integer> symptomsSort=  analyticsCounter.sortSymptoms(symptomsCount);
+        analyticsCounter.writeSymptoms(symptomsSort);
 
     }
 }
