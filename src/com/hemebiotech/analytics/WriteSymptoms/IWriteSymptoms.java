@@ -3,8 +3,8 @@ package com.hemebiotech.analytics.WriteSymptoms;
 import java.util.Map;
 
 /**
- *Takes a TreeMap with the symptoms in alphabetical order and their occurrence count as an argument to write the results into a .out file.
- *
+ *Takes a TreeMap with the symptoms in alphabetical order and their occurrence count as an argument to write
+ * the results into a .out file.
  */
 public interface IWriteSymptoms {
     /**

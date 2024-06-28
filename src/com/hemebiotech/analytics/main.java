@@ -11,12 +11,12 @@ public class main {
 
     public static void main(String args[]) throws Exception {
 
-
-        AnalyticsCounter analyticsCounter = new AnalyticsCounter("symptoms.txt", "resolt.out");
+        AnalyticsCounter analyticsCounter = new AnalyticsCounter("symptoms.txt", "result.out");
         List<String> symptomsList = analyticsCounter.getSymptoms();
         Map<String, Integer> symptomsCount = analyticsCounter.countSymptoms(symptomsList);
         Map<String, Integer> symptomsSort=  analyticsCounter.sortSymptoms(symptomsCount);
         analyticsCounter.writeSymptoms(symptomsSort);
-
     }
 }
+
+

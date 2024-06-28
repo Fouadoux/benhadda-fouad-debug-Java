@@ -11,9 +11,12 @@ import java.util.List;
  */
 public interface IReadSymptoms {
 	/**
-	 * If no data is available, return an exception error
+	 * If no data is available, return an empty file error
 	 * 
 	 * @return a raw listing of all Symptoms obtained from a data source, duplicates are possible/probable
 	 */
 	List<String> readSymptoms();
 }
+
+
+
