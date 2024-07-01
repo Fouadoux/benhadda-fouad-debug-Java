@@ -51,18 +51,18 @@ public class AnalyticsCounter {
      *  Use computeIfPresent to increment the value by 1
      *  @see <https://docs.oracle.com/javase/8/docs/api/java/util/Map.html#computeIfPresent-K-java.util.function.BiFunction->
      *
-     * @param readSymptomDataFromFile A list with all the symptoms, containing multiple occurrences and not sorted.
+     * @param readSymptoms A list with all the symptoms, containing multiple occurrences and not sorted.
      * @return a map with the symptoms sorted and counted. We need this to use the method writeSymptoms in the class WriteSymptomDataToFile
      */
 
-    public Map<String, Integer> countSymptoms(List<String> readSymptomDataFromFile) {
-        Map<String,Integer> symptomCount = new HashMap<>();
-        for (String listSymptom : readSymptomDataFromFile)
+    public Map<String, Integer> countSymptoms(List<String> readSymptoms) {
+        Map<String,Integer> symptomsCount = new HashMap<>();
+        for (String listSymptom : readSymptoms)
         {
-            symptomCount.computeIfAbsent(listSymptom, key->0);
-            symptomCount.computeIfPresent(listSymptom, (key,value)->value+1);
+            symptomsCount.computeIfAbsent(listSymptom, key->0);
+            symptomsCount.computeIfPresent(listSymptom, (key,value)->value+1);
         }
-        return symptomCount;
+        return symptomsCount;
     }
 
 
@@ -70,16 +70,16 @@ public class AnalyticsCounter {
      * Method for sorting in alphabetical order
      * Use a foreach loop to put the key and value in a TreeMap to automatically sort the symptoms in alphabetical order.
      *
-     * @param symptomCount a Map<Sting,Interger> with the symptom counted
+     * @param symptomsCount a Map with the symptom counted
      * @return a map sorted in alphabetical order key=symptom, value=occurrence
      */
-    public Map<String, Integer> sortSymptoms(Map<String ,Integer> symptomCount) {
-        Map<String, Integer> symptomSort = new TreeMap<>();
-        for (Map.Entry<String, Integer> entry : symptomCount.entrySet()) {
+    public Map<String, Integer> sortSymptoms(Map<String ,Integer> symptomsCount) {
+        Map<String, Integer> symptomsSort = new TreeMap<>();
+        for (Map.Entry<String, Integer> entry : symptomsCount.entrySet()) {
             String key = entry.getKey();
             Integer value = entry.getValue();
-            symptomSort.put(key, value);
+            symptomsSort.put(key, value);
         }
-        return symptomSort;
+        return symptomsSort;
     }
 }
