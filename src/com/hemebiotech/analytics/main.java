@@ -7,7 +7,7 @@ import java.util.Map;
 
 public class main {
 
-    public static void main(String args[]) {
+    public static void main(String[] args) {
         /**
          * Instantiate the AnalyticsCounter class and call the method for reading, the method for counting symptoms,
          * sort the symptoms, and finally call the method to write the results to an output file.
