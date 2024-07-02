@@ -11,11 +11,12 @@ import java.util.TreeMap;
 /**
  * This class provides methods to count the occurrences of symptoms and sort them in alphabetical order.
  */
+
 public class AnalyticsCounter {
 
 
-    ReadSymptoms readSymptoms;
-    WriteSymptoms writeSymptoms;
+    private ReadSymptoms readSymptoms;
+    private WriteSymptoms writeSymptoms;
 
     /**
      * Constructor that instantiates the classes ReadSymptoms and WriteSymptoms.
@@ -38,7 +39,7 @@ public class AnalyticsCounter {
 
     /**
      *Call the writeSymptoms method from the WriteSymptoms class
-     * @param symptoms
+     * @param symptoms a map sorted in alphabetical order key=symptom, value=occurrence
      */
     public void writeSymptoms(Map<String,Integer> symptoms){
         writeSymptoms.writeSymptoms(symptoms);
@@ -47,10 +48,7 @@ public class AnalyticsCounter {
     /**
      *  Method for counting the occurrence of symptoms
      *  Use computeIfAbsent to create a symptom with a value of 0
-     *  @see </https://docs.oracle.com/javase/8/docs/api/java/util/Map.html#computeIfAbsent-K-java.util.function.Function->
      *  Use computeIfPresent to increment the value by 1
-     *  @see <https://docs.oracle.com/javase/8/docs/api/java/util/Map.html#computeIfPresent-K-java.util.function.BiFunction->
-     *
      * @param readSymptoms A list with all the symptoms, containing multiple occurrences and not sorted.
      * @return a map with the symptoms sorted and counted. We need this to use the method writeSymptoms in the class WriteSymptomDataToFile
      */

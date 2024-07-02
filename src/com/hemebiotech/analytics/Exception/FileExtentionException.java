@@ -1,4 +1,4 @@
-package com.hemebiotech.analytics.WriteSymptoms;
+package com.hemebiotech.analytics.Exception;
 
 /**
  *Return a message if the extension is not .out
@@ -6,6 +6,6 @@ package com.hemebiotech.analytics.WriteSymptoms;
 public class FileExtentionException extends Exception {
    public FileExtentionException(String error) {
 
-        super("Wrong extension file");
+        super(error);
     }
 }

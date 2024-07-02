@@ -1,5 +1,7 @@
 package com.hemebiotech.analytics.ReadSymptoms;
 
+import com.hemebiotech.analytics.Exception.EmptyFileException;
+
 import java.io.BufferedReader;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
@@ -8,7 +10,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * define methode to read the file with the symptoms
+ * Define methode to read the file with the symptoms
  *
  */
 public class ReadSymptoms implements IReadSymptoms {
@@ -45,7 +47,7 @@ public class ReadSymptoms implements IReadSymptoms {
 				// Exception
 				// The count is used in the while loop. If the document is empty, it stays at 0 and throws the exception
 				if(count==0){
-					throw new EmpyFileException("");
+					throw new EmptyFileException("File Empty");
 				}
 			} catch (FileNotFoundException e){
 				System.out.println(e.getMessage());
@@ -53,7 +55,7 @@ public class ReadSymptoms implements IReadSymptoms {
 			} catch (IOException e) {
 				e.printStackTrace();
 
-			}catch (EmpyFileException e){
+			}catch (EmptyFileException e){
 				System.out.println(e.getMessage());
 			}
         }

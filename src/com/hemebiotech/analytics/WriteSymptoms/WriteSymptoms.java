@@ -1,19 +1,21 @@
 package com.hemebiotech.analytics.WriteSymptoms;
 
 
+import com.hemebiotech.analytics.Exception.FileExtentionException;
+
 import java.io.FileWriter;
 import java.io.IOException;
 import java.util.Map;
 
 public class WriteSymptoms implements IWriteSymptoms {
     /**
-     *
+     *Define a method to write the symptom counts in alphabetical order to a .out file
      */
     private final String filepath; // Name of the output file.
 
     /**
      *Class constructor
-     * @param filepath  * Path of the file writing the symptoms in alphabetical order along with their occurrences.
+     * @param filepath Path of the file writing the symptoms in alphabetical order along with their occurrences.
      */
     public WriteSymptoms(String filepath) {
         this.filepath=filepath;
@@ -30,7 +32,7 @@ public class WriteSymptoms implements IWriteSymptoms {
 
                 try {
                     if (!filepath.substring(pointPosition + 1).equals("out")) {
-                        throw new FileExtentionException("");
+                        throw new FileExtentionException("Wrong extension file");
                     }
                     FileWriter writer = new FileWriter(filepath);
                     for (Map.Entry<String, Integer> entry : symptoms.entrySet()) {
