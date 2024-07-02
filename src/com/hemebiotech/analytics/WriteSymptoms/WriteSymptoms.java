@@ -6,11 +6,11 @@ import com.hemebiotech.analytics.Exception.FileExtentionException;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.util.Map;
-
+/**
+ *Define a method to write the symptom counts in alphabetical order to a .out file
+ */
 public class WriteSymptoms implements IWriteSymptoms {
-    /**
-     *Define a method to write the symptom counts in alphabetical order to a .out file
-     */
+
     private final String filepath; // Name of the output file.
 
     /**
@@ -27,7 +27,7 @@ public class WriteSymptoms implements IWriteSymptoms {
      * @param symptoms a map sorted in alphabetical order key=symptom, value=occurrence
      */
     public void writeSymptoms(Map<String, Integer> symptoms) {
-        if (filepath != null) {
+        if (filepath != null && !filepath.isEmpty()) {
             int pointPosition = filepath.lastIndexOf(".");
 
                 try {
@@ -45,6 +45,9 @@ public class WriteSymptoms implements IWriteSymptoms {
                 }catch (FileExtentionException e) {
                     System.out.println(e.getMessage());
                 }
+        }
+        else {
+            System.out.println("Results File : Filepath is empty");
         }
     }
 }

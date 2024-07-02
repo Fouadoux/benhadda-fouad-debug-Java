@@ -32,7 +32,7 @@ public class ReadSymptoms implements IReadSymptoms {
 	public List<String> readSymptoms() {
 		List<String> symptomList = new ArrayList<>();
 
-		if (filepath != null) {
+		if (filepath != null && !filepath.isEmpty()) {
 			try {
 				BufferedReader reader = new BufferedReader (new FileReader(filepath));
 				String line = reader.readLine();
@@ -59,6 +59,9 @@ public class ReadSymptoms implements IReadSymptoms {
 				System.out.println(e.getMessage());
 			}
         }
+		else {
+			System.out.println("Read File : Filepath is empty");
+		}
 		return symptomList;
 	}
 }
